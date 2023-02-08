@@ -1,26 +1,32 @@
+import React from "react";
 
-function PizzaBlock () {
+function PizzaBlock ({type, price, size, id, image, title, category}) {
+    const [activeSize, setActiveSize] = React.useState(0)
+    const [activeType, setActiveType] = React.useState(0)
+    const typeNames = ["традиційне", "тонке"]
+
     return(
         <div class="pizza-block">
               <img
                 class="pizza-block__image"
-                src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+                src={image}
                 alt="Pizza"
               />
-              <h4 class="pizza-block__title">Чизбургер-пицца</h4>
+              <h4 class="pizza-block__title">{title}</h4>
               <div class="pizza-block__selector">
                 <ul>
-                  <li class="active">тонке</li>
-                  <li>традиційне</li>
+                  {type.map((typeId, i)=> (
+                    <li key={i} onClick={()=> setActiveType(i)} className={activeType === i ? "active" : ""} >{typeNames[typeId]}</li>
+                  ))}
                 </ul>
                 <ul>
-                  <li class="active">26 см.</li>
-                  <li>30 см.</li>
-                  <li>40 см.</li>
+                  {size.map((value, i)=>(
+                    <li key={i} onClick={()=> setActiveSize(i)} className={activeSize === i ? "active" : "" }>{value}</li>
+                  ))}
                 </ul>
               </div>
               <div class="pizza-block__bottom">
-                <div class="pizza-block__price">от 395 ₴</div>
+                <div class="pizza-block__price">від {price} ₴</div>
                 <div class="button button--outline button--add">
                   <svg
                     width="12"
