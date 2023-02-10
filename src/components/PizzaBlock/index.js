@@ -6,10 +6,10 @@ function PizzaBlock({ type, price, size, id, image, title, category }) {
   const typeNames = ['традиційне', 'тонке'];
 
   return (
-    <div class="pizza-block">
-      <img class="pizza-block__image" src={image} alt="Pizza" />
-      <h4 class="pizza-block__title">{title}</h4>
-      <div class="pizza-block__selector">
+    <div className="pizza-block">
+      <img className="pizza-block__image" src={image} alt="Pizza" />
+      <h4 className="pizza-block__title">{title}</h4>
+      <div className="pizza-block__selector">
         <ul>
           {type.map((typeId, i) => (
             <li
@@ -31,9 +31,9 @@ function PizzaBlock({ type, price, size, id, image, title, category }) {
           ))}
         </ul>
       </div>
-      <div class="pizza-block__bottom">
-        <div class="pizza-block__price">від {price} ₴</div>
-        <div class="button button--outline button--add">
+      <div className="pizza-block__bottom">
+        <div className="pizza-block__price">від {price} ₴</div>
+        <div className="button button--outline button--add">
           <svg
             width="12"
             height="12"

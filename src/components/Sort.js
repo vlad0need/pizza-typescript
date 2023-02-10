@@ -11,8 +11,8 @@ function Sort() {
   }
 
   return (
-    <div class="sort">
-      <div class="sort__label">
+    <div className="sort">
+      <div className="sort__label">
         <svg
           width="10"
           height="6"
@@ -28,7 +28,7 @@ function Sort() {
         <span onClick={() => setOpen(!open)}>{sortCategories[activeSort]}</span>
       </div>
       {open && (
-        <div class="sort__popup">
+        <div className="sort__popup">
           <ul>
             {sortCategories.map((value, i) => (
               <li key={i} className={activeSort === i ? "active" :  ""} onClick={() => applySort(i)}>{value}</li>
