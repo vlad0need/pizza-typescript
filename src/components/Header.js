@@ -12,6 +12,7 @@ function Header() {
             <p>Найсмачніша піцца у всесвіті</p>
           </div>
         </div>
+        <input className='search-input' placeholder=' Введіть назву...'></input>
         <div className="header__cart">
           <Link to="/cart" className="button button--cart">
             <span>520 ₴</span>

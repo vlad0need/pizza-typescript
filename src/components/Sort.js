@@ -1,6 +1,8 @@
 import React from 'react';
+import { useDispatch } from 'react-redux'
+import { setActiveSort } from '../redux/slices/filterSlice';
 
-function Sort({activeSort, setActiveSort}) {
+function Sort({activeSort}) {
   const [open, setOpen] = React.useState(false);
   const sortCategories = [
     {name: "популярності", sort: "rating"}, 
@@ -8,8 +10,10 @@ function Sort({activeSort, setActiveSort}) {
     {name: "алфавіту", sort: "title"}
   ]
 
+  const dispatch = useDispatch()
+
   const applySort = (value) => {
-    setActiveSort(value)
+    dispatch(setActiveSort(value))
     setOpen(false)
   }
 

@@ -3,14 +3,13 @@ import Categories from './../components/Categories';
 import Sort from './../components/Sort';
 import PizzaBlock from './../components/PizzaBlock';
 import Skeleton from './../components/PizzaBlock/Skeleton';
+import { useSelector } from 'react-redux'
 
 function Home() {
   const [pizzaItem, setPizzaItem] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [activeCategory, setActiveCategory] = React.useState(0);
-  const [activeSort, setActiveSort] = React.useState({
-    name: 'популярності', sort: "rating" 
-  })
+  const activeCategory = useSelector((state) => state.filter.activeCategory)
+  const activeSort = useSelector((state) => state.filter.activeSort)
 
   React.useEffect(() => {
     fetch(`https://63e5669e6eded7dd448758ff.mockapi.io/item?${activeCategory > 0 ? `category=${activeCategory}` : ''}&sortBy=${activeSort.sort}`)
@@ -24,8 +23,8 @@ function Home() {
   return (
     <>
       <div className="content__top">
-        <Categories activeCategory={activeCategory} setActiveCategory={(id) => setActiveCategory(id)}  />
-        <Sort activeSort={activeSort}  setActiveSort={(id) => setActiveSort(id)} />
+        <Categories activeCategory={activeCategory}  />
+        <Sort activeSort={activeSort} />
       </div>
       <h2 className="content__title">Всі піцци</h2>
       <div className="content__items">

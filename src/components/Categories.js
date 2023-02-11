@@ -1,7 +1,11 @@
 import React from 'react';
+import { setActiveCategory } from '../redux/slices/filterSlice';
+import { useDispatch } from 'react-redux'
 
-function Categories({activeCategory, setActiveCategory}) {
+function Categories({activeCategory}) {
   const categoriesPizza = ['Усі', 'Мʼясні', 'Вегетеріанські', 'Гриль', 'Гострі', 'Закриті'];
+  
+  const dispatch = useDispatch()
 
   return (
     <div className="categories">
@@ -9,7 +13,7 @@ function Categories({activeCategory, setActiveCategory}) {
         {categoriesPizza.map((value, i) => (
           <li
             key={i}
-            onClick={() => setActiveCategory(i)}
+            onClick={() => dispatch(setActiveCategory(i))}
             className={activeCategory === i ? 'active' : ''}>
             {value}
           </li>
