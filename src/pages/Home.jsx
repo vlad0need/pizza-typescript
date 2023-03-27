@@ -12,12 +12,12 @@ function Home() {
   const activeSort = useSelector((state) => state.filter.activeSort)
 
   React.useEffect(() => {
-    fetch(`https://63e5669e6eded7dd448758ff.mockapi.io/item?${activeCategory > 0 ? `category=${activeCategory}` : ''}&sortBy=${activeSort.sort}`)
+    fetch(`https://63e5669e6eded7dd448758ff.mockapi.io/pizza/?${activeCategory > 0 ? `category=${activeCategory}` : ''}&sortBy=${activeSort.sort}`)
       .then((res) => res.json())
       .then((json) => {
         setPizzaItem(json);
         setIsLoading(false);
-      });
+      })
   }, [activeCategory, activeSort]);
 
   return (
