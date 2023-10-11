@@ -45,7 +45,7 @@ function CartItem({id, size, price, imageUrl, title, count, type}) {
           </button>
         </div>
         <div class="cart__item-price">
-          <b>{price * count} ₽</b>
+          <b>{price * count} ₴</b>
         </div>
         <div onClick={remove} class="cart__item-remove">
           <div class="button button--outline button--circle">

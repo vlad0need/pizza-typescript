@@ -30,16 +30,10 @@ function Home() {
       <div className="content__items">
         {isLoading
           ? [...new Array(6)].map((_, i) => <Skeleton key={i} />)
-          : pizzaItem.map((item, i) => (
+          : pizzaItem.map((item) => (
               <PizzaBlock
                 key={item.id}
-                image={item.imageUrl}
-                title={item.title}
-                size={item.sizes}
-                category={item.category}
-                price={item.price}
-                type={item.types}
-                id={item.id}
+                {...item}
               />
             ))}
       </div>
