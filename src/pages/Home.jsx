@@ -15,7 +15,7 @@ function Home() {
 
   const getPizzas = async () => {
     dispatch(fetchPizzas({ activeCategory, activeSort }));
-    console.log('yes');
+    console.log('yess');
   };
 
   React.useEffect(() => {
