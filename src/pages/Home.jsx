@@ -13,14 +13,14 @@ function Home() {
   const activeSort = useSelector((state) => state.filter.activeSort);
   const dispatch = useDispatch();
 
-  const getPizzas = async () => {
-    dispatch(fetchPizzas({ activeCategory, activeSort }));
-    console.log('yess');
-  };
-
   React.useEffect(() => {
+    const getPizzas = async () => {
+      dispatch(fetchPizzas({ activeCategory, activeSort }));
+      console.log('yess');
+    };
+  
     getPizzas();
-  }, [activeCategory, activeSort]);
+  }, [activeCategory, activeSort, dispatch]);
 
   return (
     <>
