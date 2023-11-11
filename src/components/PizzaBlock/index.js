@@ -20,7 +20,7 @@ const cartItem = useSelector((state) => state.cart.items.find(obj => obj.id === 
       price,
       imageUrl,
       type: typeNames[activeType],
-      size: activeSize
+      size: sizes[activeSize]
     }
     dispatch(addItem(item))
   }
